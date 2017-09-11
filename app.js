@@ -62,33 +62,36 @@ async function _confirmCoin(coin) {
 }
 
 async function main() {
-    const coins = [];
-    const coinTypes = {
-        btc: {
-            id: 'BTC-USD',
-            name: 'Bitcoin',
-            ticker: await btcClient.getProductTicker(),
-            size: config.btc.size,
-        },
-        eth: {
-            id: 'ETH-USD',
-            name: 'Ethereum',
-            ticker: await ethClient.getProductTicker(),
-            size: config.eth.size,
-        },
-        ltc: {
-            id: 'LTC-USD',
-            name: 'Litecoin',
-            ticker: await ltcClient.getProductTicker(),
-            size: config.ltc.size,
-        },
-    };
-
-    if (config.btc) coins.push(coinTypes.btc);
-    if (config.eth) coins.push(coinTypes.eth);
-    if (config.ltc) coins.push(coinTypes.ltc);
-
     try {
+        const coins = [];
+
+        if (config.btc && config.btc.size && config.btc.occurrence) {
+            coins.push({
+                id: 'BTC-USD',
+                name: 'Bitcoin',
+                ticker: await btcClient.getProductTicker(),
+                size: config.btc.size,
+            });
+        }
+
+        if (config.eth && config.eth.size && config.eth.occurrence) {
+            coins.push({
+                id: 'ETH-USD',
+                name: 'Ethereum',
+                ticker: await ethClient.getProductTicker(),
+                size: config.eth.size,
+            });
+        }
+
+        if (config.ltc && config.ltc.size && config.ltc.occurrence) {
+            coins.push({
+                id: 'LTC-USD',
+                name: 'Litecoin',
+                ticker: await ltcClient.getProductTicker(),
+                size: config.ltc.size,
+            });
+        }
+
         logger.info('Getting gdax information...');
         await Promise.mapSeries(coins, coin => _confirmCoin(coin));
         setTimeout(() => {
