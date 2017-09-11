@@ -1,0 +1,30 @@
+{
+  "name": "recur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/eslint/bin/eslint.js  . --fix --ext .js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "gdax": "github:coinbase/gdax-node",
+    "mailgun-js": "^0.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "~11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
+    }
+  }
+}

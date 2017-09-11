@@ -1,0 +1,24 @@
+{
+    "email": "your_email",
+    "mailgun": { // optional
+        "apiKey": "your_api_key",
+        "domain": "your_mailgun_domain"
+    },
+    "gdax": {
+        "apiKey": "your_api_key",
+        "secret": "your_secret",
+        "passPhrase": "your_passPhrase"
+    },
+    "btc": {
+        "size": 0.1, // min size is 0.1
+        "occurrence": 3 //days
+    },
+    "ltc": {
+        "size": 0.1, // min size is 0.1
+        "occurrence": 3 // days
+    },
+    "eth": {
+        "size": 0.1, // min size is 0.1
+        "occurrence": 3 // days
+    }
+}

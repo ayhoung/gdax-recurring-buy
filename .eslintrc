@@ -1,0 +1,42 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "airbnb-base"
+    ],
+    // reference: http://eslint.org/docs/rules/
+    "rules": {
+        // set "indent" space to 4
+        "indent": [
+            "error",
+            4,
+            { "SwitchCase": 1 }
+        ],
+        // show warning when writing console in code
+        "no-console": 1,
+        // arrow function is not forced to use in callback
+        "prefer-arrow-callback": 0,
+        // not force to naming function all the time
+        "func-names": 0,
+        // disable "global-require" restriction
+        "global-require": 0,
+        // disable "no-underscore-dangle" 
+        "no-underscore-dangle": 0,
+        // disable "object-shorthand" for better readability
+        "object-shorthand": ["error", "never"],
+        // disable "newline-per-chained-call" for promise chain style
+        "newline-per-chained-call": 0,
+        // due to the indent space, it is 4, please check the above setting, overwrite the original 100 limitation
+        "max-len": ["error", 120, 2, {
+            "ignoreUrls": true,
+            "ignoreComments": false,
+            "ignoreRegExpLiterals": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true
+        }]
+    }
+}
