@@ -62,26 +62,31 @@ async function _confirmCoin(coin) {
 }
 
 async function main() {
-    const coins = [
-        {
+    const coins = [];
+    const coinTypes = {
+        btc: {
             id: 'BTC-USD',
             name: 'Bitcoin',
             ticker: await btcClient.getProductTicker(),
             size: config.btc.size,
         },
-        {
+        eth: {
             id: 'ETH-USD',
             name: 'Ethereum',
             ticker: await ethClient.getProductTicker(),
             size: config.eth.size,
         },
-        {
+        ltc: {
             id: 'LTC-USD',
             name: 'Litecoin',
             ticker: await ltcClient.getProductTicker(),
             size: config.ltc.size,
         },
-    ];
+    };
+
+    if (config.btc) coins.push(coinTypes.btc);
+    if (config.eth) coins.push(coinTypes.eth);
+    if (config.ltc) coins.push(coinTypes.ltc);
 
     try {
         logger.info('Getting gdax information...');
